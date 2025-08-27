@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "Run tests": "npm test",
+    "start": "example.spec.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
