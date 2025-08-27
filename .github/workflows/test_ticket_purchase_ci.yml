@@ -35,6 +35,12 @@ jobs:
       - name: Run tests
         run: npm test     
 
+      - name: Upload Allure Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-history
+          path: allure-history
+
       - name: Generate Allure Report
         uses: simple-elf/allure-report-action@v1.7
         with:
