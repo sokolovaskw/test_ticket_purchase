@@ -6,6 +6,9 @@ on:
 
 jobs:
   built:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
 
     permissions:
@@ -44,19 +47,13 @@ jobs:
           name: github-pages
           path: allure-report/
 
-  deploy:
-      environment:
-        name: github-pages
-        url: ${{ steps.deployment.outputs.page_url }}
-      runs-on: ubuntu-latest
-
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: playwright-report
           path: playwright-report/
-        
+          
       - name: Deploy to GitHub Pages
-          id: deployment
-          uses: actions/deploy-pages@v4
+        id: deployment
+        uses: actions/deploy-pages@v4
