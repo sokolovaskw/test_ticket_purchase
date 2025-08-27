@@ -14,7 +14,7 @@
     "allure-commandline": "^2.34.1",
     "allure-jasmine": "^3.3.3",
     "allure-jest": "^3.3.3",
-    "jest-environment-node": "^30.0.5",
+    "jest-environment-node": "^30.1.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   },
