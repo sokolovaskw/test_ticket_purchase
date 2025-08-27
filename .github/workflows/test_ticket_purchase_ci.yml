@@ -1,7 +1,7 @@
 name: test_ticket_purchase_ci
 on:
   schedule:
-    - cron: 5 * * * *
+    - cron: '5 * * * *'
   workflow_dispatch:
 permissions:
   contents: read
@@ -18,9 +18,9 @@ jobs:
         uses: actions/checkout@v4
       - name: 2
         uses: actions/setup-node@v4
-          with:
-            node-version: 20.11.0
-            cache: 'npm'
+        with:
+          node-version: '20.11.0'
+          cache: 'npm'
         run: npm ci
       - name: 3
         uses: simple-elf/allure-report-action@master
