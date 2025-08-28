@@ -1,49 +1,52 @@
 name: test_ticket_purchase_ci
 on:
-  #schedule:
-    #- cron: '5 * * * *'
-  workflow_dispatch:
+    #schedule:
+        #- cron: '5 * * * *'
+    
+    workflow_dispatch:
 
 jobs:
-  test:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    test:
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
 
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+        permissions:
+            contents: read
+            pages: write
+            id-token: write
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20.11.0'
-          cache: 'npm' 
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: '20.11.0'
+                cache: 'npm' 
+
+            - name: Install dependencies
+              run: npm ci       
+
+            - name: Install Playwright Browsers
+              run: npx playwright install --with-deps
       
-      - name: Install dependencies
-        run: npm ci       
+            - name: Run Playwright tests
+              run: npx playwright test
 
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-      - name: Run Playwright tests
-        run: npx playwright test
-        
-      - run: npm allure:ci  
+            - run: npm allure:ci  
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+            - name: Setup Pages
+              uses: actions/configure-pages@v4
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: '.'
-          
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+            - name: Upload artifact
+              uses: actions/upload-pages-artifact@v4
+              with:
+                path: '.'
+
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v4
