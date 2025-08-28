@@ -26,10 +26,11 @@ jobs:
           node-version: '20.11.0'
           cache: 'npm'        
 
-      - name: Install Playwright
+      - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-
-      - run: npm run test:ci
+      - name: Run Playwright tests
+        run: npx playwright test
+        
       - run: npm allure:ci  
 
       - name: Setup Pages
