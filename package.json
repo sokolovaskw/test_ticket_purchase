@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:ci": "playwright test tests/example.spec.ts",
+    "test:ci": "npx playwright test tests/example.spec.ts",
     "test:all": "playwright test",
     "test:ui": "playwright test --ui",
     "test:debug": "playwright test --debug",
