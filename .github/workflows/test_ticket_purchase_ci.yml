@@ -1,7 +1,7 @@
 name: test_ticket_purchase_ci
 on:
-  schedule:
-    - cron: '5 * * * *'
+  #schedule:
+    #- cron: '5 * * * *'
   workflow_dispatch:
 
 jobs:
