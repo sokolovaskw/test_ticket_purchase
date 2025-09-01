@@ -4,14 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:ci": "npx playwright test tests/example.spec.ts",
-    "test:all": "playwright test",
-    "test:ui": "playwright test --ui",
-    "test:debug": "playwright test --debug",
-    "allure:ci": "playwright test --reporter=line,allure-playwright",
-    "allure:generate": "allure generate ./allure-results --clean -o ./allure-report",
-    "allure:serve": "allure serve ./allure-results",
-    "allure:open": "allure open ./allure-report"
+    "test:ci": "npx playwright test",
+    "test:ui": "npx playwright test --ui",
+    "test:debug": "npx playwright test --debug",
+    "allure:ci": "npx playwright test --reporter=line,allure-playwright",
+    "allure:generate": "npx allure generate ./allure-results --clean -o ./allure-report",
+    "allure:serve": "npx allure serve ./allure-results",
+    "allure:open": "npx allure open ./allure-report"
   },
   "keywords": [],
   "author": "",
