@@ -2,8 +2,8 @@ name: test_ticket_purchase_ci
 on:
     #schedule:
         #- cron: '5 * * * *'
-    
-    workflow_dispatch:
+    push:
+      branches: [ main, master ]
 
 jobs:
     test:
@@ -37,15 +37,16 @@ jobs:
             - name: Run Playwright tests
               run: npx playwright test
 
-            - run: npm allure:ci  
-
             - name: Setup Pages
               uses: actions/configure-pages@v4
 
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v4
+              if: ${{ !cancelled() }}
               with:
-                path: '.'
+                name: playwright-report
+                path: playwright-report/
+                retention-days: 30
 
             - name: Deploy to GitHub Pages
               id: deployment

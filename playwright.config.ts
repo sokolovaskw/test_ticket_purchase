@@ -9,6 +9,7 @@ export default defineConfig({
 	reporter: [
 		[ 'html' ],
 		[ 'allure-playwright' ],
+		[ process.env.CI ? 'github' : 'list' ],
 	],
 	use: {
 		trace: 'retry-with-trace',
