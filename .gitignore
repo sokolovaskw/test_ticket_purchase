@@ -1,10 +1,10 @@
 # Playwright
 node_modules/
-package-lock.json/
-/e2e
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
+package-lock.json
+e2e/
+test-results/
+blob-report/
+playwright/.cache/
 allure-report/
 playwright-report/
+allure-results/
