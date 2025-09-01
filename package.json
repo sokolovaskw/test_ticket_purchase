@@ -1,38 +1,27 @@
 {
-  "name": "tests",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test:ci": "npx playwright test",
-    "test:ui": "npx playwright test --ui",
-    "test:debug": "npx playwright test --debug",
-    "allure:ci": "npx playwright test --reporter=line,allure-playwright",
-    "allure:generate": "npx allure generate ./allure-results --clean -o ./allure-report",
-    "allure:serve": "npx allure serve ./allure-results",
-    "allure:open": "npx allure open ./allure-report"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "devDependencies": {
-    "@playwright/test": "^1.55.0",
-    "@types/node": "^24.0.3",
-    "allure-commandline": "^2.34.1",
-    "allure-jasmine": "^3.3.3",
-    "allure-jest": "^3.3.3",
-    "allure-js": "^0.0.1-security",
-    "allure-playwright": "^3.3.3",
-    "globals": "^16.3.0",
-    "jest-environment-node": "^30.1.1",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.2"
-  },
-  "dependencies": {
-    "@estruyf/github-actions-reporter": "^1.10.0",
-    "jasmine-allure-reporter": "^1.0.2",
-    "jest-allure": "^0.1.3",
-    "jest-jasmine2": "^30.0.5"
-  }
+    "name": "tests",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test:ci": "npx playwright test",
+        "test:ui": "npx playwright test --ui",
+        "test:debug": "npx playwright test --debug",
+        "allure:ci": "npx playwright test --reporter=line,allure-playwright"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs",
+    "devDependencies": {
+        "@playwright/test": "^1.55.0",
+        "@types/node": "^24.0.3",
+        "globals": "^16.3.0",
+        "jest-environment-node": "^30.1.1",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.9.2"
+    },
+    "dependencies": {
+        "@estruyf/github-actions-reporter": "^1.10.0"
+    }
 }
