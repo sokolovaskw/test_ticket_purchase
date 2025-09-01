@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import type { GitHubActionOptions } from '@estruyf/github-actions-reporter';
 
 export default defineConfig({
 	testDir: './tests',
@@ -8,8 +9,13 @@ export default defineConfig({
 	workers: process.env.CI ? 1 : undefined,
 	reporter: [
 		[ 'html' ],
+		[ 'list'],
 		[ 'allure-playwright' ],
 		[ process.env.CI ? 'github' : 'list' ],
+		[ '@estruyf/github-actions-reporter', <GitHubActionOptions>{
+      		useDetails: true,
+      		showError: true
+    	} ],
 	],
 	use: {
 		trace: 'retry-with-trace',
