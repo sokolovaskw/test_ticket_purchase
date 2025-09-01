@@ -9,8 +9,6 @@ export default defineConfig({
 	workers: process.env.CI ? 1 : undefined,
 	reporter: [
 		[ 'html' ],
-		[ 'list'],
-		[ 'allure-playwright' ],
 		[ process.env.CI ? 'github' : 'list' ],
 		[ '@estruyf/github-actions-reporter', <GitHubActionOptions>{
       		useDetails: true,
