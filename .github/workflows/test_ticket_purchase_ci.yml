@@ -3,7 +3,7 @@ on:
     schedule:
         - cron: '5 * * * *'
     push:
-      branches: [ main, master ]
+        branches: [ main, master ]
 
 jobs:
     test:
@@ -44,3 +44,21 @@ jobs:
                 name: playwright-report
                 path: playwright-report/
                 retention-days: 30
+
+    notification:
+        if: always()
+        needs: [test]
+
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - run: |
+                  curl --request POST \
+                      --url https://api.telegram.org/bot${{ secrets.TEST_TELEGRAM_TOKEN }}/sendMessage \
+                      --header 'Content-Type: application/json' \
+                      --data '{ "chat_id": "${{ secrets.TEST_TELEGRAM_CHAT_ID }}", "text": "Report link: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" }'
+
