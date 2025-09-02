@@ -16,10 +16,6 @@ concurrency:
 
 jobs:
     test:
-        environment:
-            name: github-pages
-            url: ${{ steps.deployment.outputs.page_url }}
-
         runs-on: ubuntu-latest
 
         steps:
@@ -59,10 +55,6 @@ jobs:
     notification:
         if: always()
         needs: [test]
-
-        environment:
-            name: github-pages
-            url: ${{ steps.deployment.outputs.page_url }}
 
         runs-on: ubuntu-latest
 
