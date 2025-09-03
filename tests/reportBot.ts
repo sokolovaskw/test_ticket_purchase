@@ -15,6 +15,8 @@ export function getMessage(testInfo: TestInfo) {
                 + resultMessage
                 + `\n🕕 Время выполнения -- ${ testInfo.duration } ms \n`
                 + `\nВот ссылка -- ${ process.env.LINK_GIT } `;
+    
+    console.log('>>>>>> ' + process.env.LINK_GIT);
 
     fetch(`https://api.telegram.org/bot${ process.env.TEST_TELEGRAM_TOKEN }/sendMessage`, {
         method: 'POST',
