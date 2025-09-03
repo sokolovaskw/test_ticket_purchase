@@ -3,7 +3,7 @@ import { fakeUser } from './fakeUser';
 import { LOCATOR, ROLE, TEXT } from './locators';
 import { getMessage } from './reportBot';
 
-test.describe('two tests', () => {
+test.describe('Cистема покупки билетов', () => {
 	test('Проверка работоспособности системы покупки билетов', async ({ page }) => {
 		await page.setViewportSize({ width: 1920, height: 1080 });
 
