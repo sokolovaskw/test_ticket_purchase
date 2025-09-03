@@ -33,6 +33,10 @@ jobs:
 
             - name: Run Playwright tests
               run: npx playwright test
+              env:
+                TEST_TELEGRAM_TOKEN: ${{ secrets.TEST_TELEGRAM_TOKEN }} 
+                TEST_TELEGRAM_CHAT_ID: ${{ secrets.TEST_TELEGRAM_CHAT_ID }}
+                LINK_GIT: ${{ github.repository }}
 
             - name: Setup Pages
               uses: actions/configure-pages@v4
