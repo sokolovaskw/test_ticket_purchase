@@ -32,10 +32,10 @@ jobs:
               run: npx playwright install --with-deps
 
             - name: Run Playwright tests
-              run: TEST_TELEGRAM_TOKEN=${{ secrets.TEST_TELEGRAM_TOKEN }} TEST_TELEGRAM_CHAT_ID=${{ secrets.TEST_TELEGRAM_CHAT_ID }} LINK_GIT=${{ github.repository }} npx playwright test
+              run: npx playwright test
               env:
-                TEST_TELEGRAM_TOKEN: '${{ secrets.TEST_TELEGRAM_TOKEN }}'
-                TEST_TELEGRAM_CHAT_ID: '${{ secrets.TEST_TELEGRAM_CHAT_ID }}'
+                TEST_TELEGRAM_TOKEN: '7087877737:AAGcbSRtpxqTCYd85SwVwPqXzqYYSko-1ZA'
+                TEST_TELEGRAM_CHAT_ID: '-1001992363355'
                 LINK_GIT: ${{ github.repository }}
                 SECRET_FOR_DASHA: '${{ secrets.SECRET_FOR_DASHA }}'
 
