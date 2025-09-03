@@ -1,6 +1,6 @@
 import { TestInfo } from "@playwright/test";
 
-require('dotenv').config();
+// require('dotenv').config(); // Включить при запуске локально
 
 export function getMessage(testInfo: TestInfo) {
     let resultMessage = '';
