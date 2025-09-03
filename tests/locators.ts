@@ -1,7 +1,7 @@
 export const LOCATOR = {
     'DIV': 'div',
     'IFRAME': '[id="__next"] iframe',
-    'SELECT_DATA': '[data-handler="selectDay"]:nth-child(2)',
+    'SELECT_DATA': '[title][data-handler="selectDay"]:nth-child(2)',
     'SELECT_TICKET': '.ticket-type__button.plus > .ticket-type__icon > path',
     'EMAIL_INPUT': '[id="user_email"]',
     'NAME_INPUT': '[id="user_first"]',
