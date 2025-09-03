@@ -17,7 +17,7 @@ export function getMessage(testInfo: TestInfo) {
                 + `\nВот ссылка -- ${ process.env.LINK_GIT } `;
     
     // console.log('>>>>>> ' + process.env.LINK_GIT);
-    // console.log('>>>>>> ' + process.env.SECRET_FOR_DASHA);
+    console.log('>>>>>> ' + process.env.SECRET_FOR_DASHA);
     // console.log('>>>>>> +++' + process.env);
 
     fetch(`https://api.telegram.org/bot${ process.env.TEST_TELEGRAM_TOKEN }/sendMessage`, {
