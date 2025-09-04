@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
-import { fakeUser } from './fakeUser';
-import { LOCATOR, ROLE, TEXT } from './locators';
-import { getMessage } from './reportBot';
+import { fakeUser } from '../commonData/fakeUser';
+import { LOCATOR, ROLE, TEXT } from '../locators/locators';
+import { getMessage } from '../commonFunctions/reportBot';
 
 test.describe('Cистема покупки билетов', () => {
 	test('Проверка работоспособности системы покупки билетов', async ({ page }) => {

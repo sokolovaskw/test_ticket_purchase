@@ -1,26 +1,8 @@
 import { TestInfo } from "@playwright/test";
+import { getCurrentDate } from "./getCurrentDate";
+import { getCurrentTime } from "./getCurrentTime";
 
 // require('dotenv').config(); // Включить при запуске локально
-
-function getCurrentDate(): string{
-    const today = new Date();
-
-    const day = String(today.getDate()).padStart(2, "0");
-    const month = String(today.getMonth() + 1).padStart(2, "0"); // месяцы начинаются с 0
-    const year = today.getFullYear();
-
-    return `${day}.${month}.${year}`;
-}
-
-function getCurrentTime(): string {
-    const now = new Date();
-
-    const hours = String(now.getHours()).padStart(2, "0");
-    const minutes = String(now.getMinutes()).padStart(2, "0");
-    const seconds = String(now.getSeconds()).padStart(2, "0");
-
-    return `${hours}:${minutes}:${seconds}`;
-}
 
 export async function getMessage(testInfo: TestInfo) {
     let resultMessage = '';
