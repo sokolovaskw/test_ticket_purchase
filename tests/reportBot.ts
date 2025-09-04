@@ -24,7 +24,7 @@ export function getMessage(testInfo: TestInfo) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            chat_id: `${process.env.TEST_TELEGRAM_CHAT_ID}`,
+            chat_id: process.env.TEST_TELEGRAM_CHAT_ID,
             text: message,
         }),
     });
