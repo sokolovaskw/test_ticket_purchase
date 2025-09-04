@@ -7,7 +7,7 @@ export const LOCATOR = {
     'NAME_INPUT': '[id="user_first"]',
     'SECOUND_NAME_INPUT': '[id="user_second"]',
     'RETRY_EMAIL_INPUT': '[id="retry_user_email"]',
-    'PHONE_INPUT': '[id="user_phone1"]',
+    'PHONE_INPUT': '[id="user_phone"]',
     'AGREE': 'i',
 };
 
