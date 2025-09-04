@@ -32,7 +32,7 @@ export async function getMessage(testInfo: TestInfo) {
                 + '\n'
                 + `🐭 Вот ссылка -- https://github.com/${ process.env.LINK_GIT }/actions/runs/${ process.env.CI_ID }\n`
                 + '\n'
-                + '✿ ------------------------------------- ✿\n'
+                + '✿ ------------------ ✿\n'
                 + hashTag;
     
     console.log(message);
