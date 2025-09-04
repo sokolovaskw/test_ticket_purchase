@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { fakeUser } from '../commonData/fakeUser';
 import { LOCATOR, ROLE, TEXT } from '../locators/locators';
 import { getMessage } from '../commonFunctions/reportBot';
+import { getFrame } from '../locators/getFrame';
 
 test.describe('Cистема покупки билетов', () => {
 	test('Проверка работоспособности системы покупки билетов', async ({ page }) => {
@@ -19,9 +20,9 @@ test.describe('Cистема покупки билетов', () => {
 		await test.step('Выбор даты и билета', async () => {
 			// page.locator(LOCATOR.IFRAME);
 
-			await page.locator(LOCATOR.IFRAME).contentFrame().locator(LOCATOR.SELECT_DATA).first().click();
-			await page.locator(LOCATOR.IFRAME).contentFrame().locator(LOCATOR.SELECT_TICKET).first().click();
-			await page.locator(LOCATOR.IFRAME).contentFrame().getByRole(ROLE.BOTTON, { name: TEXT.NEXT }).click();
+			await getFrame(page).locator(LOCATOR.SELECT_DATA).first().click();
+			await getFrame(page).locator(LOCATOR.SELECT_TICKET).first().click();
+			await getFrame(page).getByRole(ROLE.BOTTON, { name: TEXT.NEXT }).click();
 		});
 
 		await test.step('Купить без авторизации', async () => {
@@ -29,16 +30,16 @@ test.describe('Cистема покупки билетов', () => {
 		});
 
 		await test.step('Заполнение формы покупки', async () => {
-			await page.locator(LOCATOR.IFRAME).contentFrame().locator(LOCATOR.EMAIL_INPUT).fill(fakeUser.fakeEmail);
-			await page.locator(LOCATOR.IFRAME).contentFrame().locator(LOCATOR.NAME_INPUT).fill(fakeUser.fakeName);
-			await page.locator(LOCATOR.IFRAME).contentFrame().locator(LOCATOR.SECOUND_NAME_INPUT).fill(fakeUser.fakeSecondName);
-			await page.locator(LOCATOR.IFRAME).contentFrame().locator(LOCATOR.RETRY_EMAIL_INPUT).fill(fakeUser.fakeEmail);
-			await page.locator(LOCATOR.IFRAME).contentFrame().locator(LOCATOR.PHONE_INPUT).fill(fakeUser.fakePhoneNumber);
+			await getFrame(page).locator(LOCATOR.EMAIL_INPUT).fill(fakeUser.fakeEmail);
+			await getFrame(page).locator(LOCATOR.NAME_INPUT).fill(fakeUser.fakeName);
+			await getFrame(page).locator(LOCATOR.SECOUND_NAME_INPUT).fill(fakeUser.fakeSecondName);
+			await getFrame(page).locator(LOCATOR.RETRY_EMAIL_INPUT).fill(fakeUser.fakeEmail);
+			await getFrame(page).locator(LOCATOR.PHONE_INPUT).fill(fakeUser.fakePhoneNumber);
 		});
 
 		await test.step('Согласие на обработку персональных данных', async () => {
-			await page.locator(LOCATOR.IFRAME).contentFrame().getByRole(ROLE.LISTITEM).filter({ hasText: TEXT.AGREE }).locator(LOCATOR.AGREE).click();
-			await page.locator(LOCATOR.IFRAME).contentFrame().getByRole(ROLE.BOTTON, { name: TEXT.NEXT }).click();
+			await getFrame(page).getByRole(ROLE.LISTITEM).filter({ hasText: TEXT.AGREE }).locator(LOCATOR.AGREE).click();
+			await getFrame(page).getByRole(ROLE.BOTTON, { name: TEXT.NEXT }).click();
 		});
 
 		await test.step('Проверка вызова формы оплаты', async () => {
