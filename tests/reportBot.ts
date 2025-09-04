@@ -6,10 +6,10 @@ export async function getMessage(testInfo: TestInfo) {
     let resultMessage = '';
 
     if (testInfo.status !== testInfo.expectedStatus)
-        resultMessage = '\n✿ ❌ Запуск теста завершен ПРОВАЛОМ!\n'
+        resultMessage = '✿ ❌ Запуск теста завершен ПРОВАЛОМ!\n'
                         + `✿ ${testInfo.error?.message}\n`;
     else
-        resultMessage = '\n✿ ✅ Запуск теста завершен УСПЕШНО!\n';
+        resultMessage = '✿ ✅ Запуск теста завершен УСПЕШНО!\n';
 
     let message = '✿ ----------ПРИВЕТ! 🐭---------- ✿\n'
                 + '\n'
@@ -17,6 +17,7 @@ export async function getMessage(testInfo: TestInfo) {
                 + '✿ 📅 Дата запуска -- 21/09/2025\n'
                 + '✿ 🕕 Время запуска -- 10:00:00\n'
                 + '✿ --------------------------------- ✿\n'
+                + '\n'
                 + '\n'
                 + '✿ --------------------------------- ✿\n'
                 + resultMessage
