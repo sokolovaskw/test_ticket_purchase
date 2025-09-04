@@ -15,8 +15,10 @@ export async function getMessage(testInfo: TestInfo) {
     const duration = getTestDuration(testInfo.duration);
 
     if (testInfo.status !== testInfo.expectedStatus) {
+        const errorMessage = testInfo.error?.message ? testInfo.error?.message.replace(/(^\[\d+m)|(\s\[\d+m$)/, "") : undefined;
+        
         resultMessage = '❌ Запуск теста завершен ПРОВАЛОМ!\n'
-                        + `${ testInfo.error?.message.replace(/(^\[\d+m)|(\s\[\d+m$)/, "") }\n`;
+                        + `${ errorMessage }\n`;
         hashTag = '#провал';
     }
     else {
