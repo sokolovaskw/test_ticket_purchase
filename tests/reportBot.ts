@@ -6,29 +6,21 @@ export async function getMessage(testInfo: TestInfo) {
     let resultMessage = '';
 
     if (testInfo.status !== testInfo.expectedStatus)
-        resultMessage = '✿ ❌ Запуск теста завершен ПРОВАЛОМ!\n'
-                        + `✿ ${testInfo.error?.message}\n`;
+        resultMessage = '❌ Запуск теста завершен ПРОВАЛОМ!\n'
+                        + `${testInfo.error?.message}\n`;
     else
-        resultMessage = '✿ ✅ Запуск теста завершен УСПЕШНО!\n';
+        resultMessage = '✅ Запуск теста завершен УСПЕШНО!\n';
 
-    let message = '✿ ПРИВЕТ! 🐭\n'
+    let message = resultMessage
+                + `🕕 Время выполнения -- ${ testInfo.duration } ms \n`
+                + '\n'
+                + '📅 Дата запуска -- 21/09/2025\n'
+                + '🕕 Время запуска -- 10:00:00\n'
+                + '\n'
+                + `🐭 Вот ссылка -- https://github.com/${ process.env.LINK_GIT }/actions/runs/${ process.env.CI_ID }\n`
                 + '\n'
                 + '✿ ------------------------------------- ✿\n'
-                + '\n'
-                + '✿ 📅 Дата запуска -- 21/09/2025\n'
-                + '✿ 🕕 Время запуска -- 10:00:00\n'
-                + '\n'
-                + '✿ ------------------------------------- ✿\n'
-                + '\n'
-                + resultMessage
-                + `✿ 🕕 Время выполнения -- ${ testInfo.duration } ms \n`
-                + '\n'
-                + '✿ ------------------------------------- ✿\n'
-                + '\n'
-                + `✿ Вот ссылка -- https://github.com/${ process.env.LINK_GIT }/actions/runs/${ process.env.CI_ID }\n`
-                + '\n'
-                + '✿ ------------------------------------- ✿\n'
-                + '✿ #успех';
+                + '#успех';
     
     console.log(message);
 
