@@ -18,8 +18,6 @@ test.describe('Cистема покупки билетов', () => {
 		});
 
 		await test.step('Выбор даты и билета', async () => {
-			// page.locator(LOCATOR.IFRAME);
-
 			await getFrame(page).locator(LOCATOR.SELECT_DATA).first().click();
 			await getFrame(page).locator(LOCATOR.SELECT_TICKET).first().click();
 			await getFrame(page).getByRole(ROLE.BOTTON, { name: TEXT.NEXT }).click();
