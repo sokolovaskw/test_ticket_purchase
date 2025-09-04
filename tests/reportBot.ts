@@ -6,15 +6,23 @@ export async function getMessage(testInfo: TestInfo) {
     let resultMessage = '';
 
     if (testInfo.status !== testInfo.expectedStatus)
-        resultMessage = '\n❌❌❌❌ Запуск теста завершен ПРОВАЛОМ! ❌❌❌❌\n'
-                        + testInfo.error?.message;
+        resultMessage = '\n❌ Запуск теста завершен ПРОВАЛОМ!\n'
+                        + testInfo.error?.message + '\n';
     else
-        resultMessage = '\n✅✅✅✅ Запуск теста завершен УСПЕШНО! ✅✅✅✅\n';
+        resultMessage = '\n✅ Запуск теста завершен УСПЕШНО!\n';
 
-    let message = 'Привет! 🐭\n' 
+    let message = '✿ ----------ПРИВЕТ! 🐭---------- ✿\n'
+                + '\n'
+                + '✿ ------------------------------ ✿\n'
+                + '✿ 📅 Дата запуска -- 21/09/2025\n'
+                + '✿ 🕕 Время запуска -- 10:00:00\n'
+                + '✿ ------------------------------ ✿\n'
+                + '\n'
                 + resultMessage
-                + `\n🕕 Время выполнения -- ${ testInfo.duration } ms \n`
-                + `\nВот ссылка -- ${ process.env.LINK_GIT } `;
+                + `🕕 Время выполнения -- ${ testInfo.duration } ms \n`
+                + '\n'
+                + `Вот ссылка -- https://github.com/${ process.env.LINK_GIT }/actions/runs/${ process.env.CI_ID }\n`
+                + '✿ ------------------------------ ✿\n';
     
     console.log('>>>>>>> ' + message);
 
@@ -29,5 +37,5 @@ export async function getMessage(testInfo: TestInfo) {
         }),
     });
 
-    console.log('<<<<<<< resp = ' + response.json());
+    console.log('<<<<<<< resp = ' + response.body);
 }
