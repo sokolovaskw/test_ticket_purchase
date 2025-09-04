@@ -1,8 +1,8 @@
-import { TestInfo, Page } from "@playwright/test";
+import { TestInfo } from "@playwright/test";
 
 // require('dotenv').config(); // Включить при запуске локально
 
-export async function getMessage(testInfo: TestInfo, page: Page) {
+export async function getMessage(testInfo: TestInfo) {
     let resultMessage = '';
 
     if (testInfo.status !== testInfo.expectedStatus)
@@ -30,12 +30,4 @@ export async function getMessage(testInfo: TestInfo, page: Page) {
     });
 
     console.log('<<<<<<< resp = ' + response.json());
-
-//     const response = await page.request.post(`https://api.telegram.org/bot${ process.env.TEST_TELEGRAM_TOKEN }/sendMessage`, {
-//       data: JSON.stringify({
-//             chat_id: process.env.TEST_TELEGRAM_CHAT_ID,
-//             text: message,
-//         })
-//     });
-//     console.log('<<<<<<< resp = ' + response.json());
 }
