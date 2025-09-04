@@ -29,11 +29,11 @@ export async function getMessage(testInfo: TestInfo, page: Page) {
         }),
     });
 
-    const response = await page.request.post(`https://api.telegram.org/bot${ process.env.TEST_TELEGRAM_TOKEN }/sendMessage`, {
-      data: JSON.stringify({
-            chat_id: process.env.TEST_TELEGRAM_CHAT_ID,
-            text: message,
-        })
-    });
-    console.log('<<<<<<< resp = ' + response.json());
-}
+//     const response = await page.request.post(`https://api.telegram.org/bot${ process.env.TEST_TELEGRAM_TOKEN }/sendMessage`, {
+//       data: JSON.stringify({
+//             chat_id: process.env.TEST_TELEGRAM_CHAT_ID,
+//             text: message,
+//         })
+//     });
+//     console.log('<<<<<<< resp = ' + response.json());
+// }
