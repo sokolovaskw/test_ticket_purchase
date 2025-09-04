@@ -16,13 +16,7 @@ export function getMessage(testInfo: TestInfo) {
                 + `\n🕕 Время выполнения -- ${ testInfo.duration } ms \n`
                 + `\nВот ссылка -- ${ process.env.LINK_GIT } `;
     
-    const id = process.env.TEST_TELEGRAM_CHAT_ID;
-    const t = process.env.TEST_TELEGRAM_TOKEN;
-    
-    // console.log('>>>>>> ' + process.env.LINK_GIT);
-    console.log('>>>>>> id = ' + id + '<<<');
-    console.log('>>>>>> t = ' + t + '<<<');
-    // console.log('>>>>>> +++' + process.env);
+    console.log('>>>>>>> ' + message);
 
     fetch(`https://api.telegram.org/bot${ process.env.TEST_TELEGRAM_TOKEN }/sendMessage`, {
         method: 'POST',

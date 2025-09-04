@@ -1,7 +1,7 @@
 name: test_ticket_purchase_ci
 on:
-    # schedule:
-    #     - cron: '5 * * * *'
+    schedule:
+        - cron: '5 * * * *'
     push:
         branches: [ main, master ]
 
@@ -33,9 +33,6 @@ jobs:
 
             - name: Install Playwright Browsers
               run: npx playwright install --with-deps
-
-            - name: Install dependencies
-              run: echo ${{ secrets.TEST_TELEGRAM_CHAT_ID }} 
 
             - name: Run Playwright tests
               run: npx playwright test
