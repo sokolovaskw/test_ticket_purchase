@@ -6,10 +6,10 @@ export async function getMessage(testInfo: TestInfo) {
     let resultMessage = '';
 
     if (testInfo.status !== testInfo.expectedStatus)
-        resultMessage = '\n❌ Запуск теста завершен ПРОВАЛОМ!\n'
-                        + testInfo.error?.message + '\n';
+        resultMessage = '\n✿ ❌ Запуск теста завершен ПРОВАЛОМ!\n'
+                        + `✿ ${testInfo.error?.message}\n`;
     else
-        resultMessage = '\n✅ Запуск теста завершен УСПЕШНО!\n';
+        resultMessage = '\n✿ ✅ Запуск теста завершен УСПЕШНО!\n';
 
     let message = '✿ ----------ПРИВЕТ! 🐭---------- ✿\n'
                 + '\n'
@@ -20,9 +20,9 @@ export async function getMessage(testInfo: TestInfo) {
                 + '\n'
                 + resultMessage
                 + '\n'
-                + `🕕 Время выполнения -- ${ testInfo.duration } ms \n`
+                + `✿ 🕕 Время выполнения -- ${ testInfo.duration } ms \n`
                 + '\n'
-                + `Вот ссылка -- https://github.com/${ process.env.LINK_GIT }/actions/runs/${ process.env.CI_ID }\n`
+                + `✿ Вот ссылка -- https://github.com/${ process.env.LINK_GIT }/actions/runs/${ process.env.CI_ID }\n`
                 + '✿ --------------------------------- ✿\n';
     
     console.log('>>>>>>> ' + message);
