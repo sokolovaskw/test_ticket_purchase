@@ -49,7 +49,7 @@ test.describe('Cистема покупки билетов', () => {
 	});
 
 	test.afterEach(async ({}, testInfo) => {
-		getMessage(testInfo);
+		await getMessage(testInfo);
 	});
 
 });
