@@ -16,7 +16,7 @@ export async function getMessage(testInfo: TestInfo) {
 
     if (testInfo.status !== testInfo.expectedStatus) {
         resultMessage = '❌ Запуск теста завершен ПРОВАЛОМ!\n'
-                        + `${testInfo.error?.message}\n`;
+                        + `${ testInfo.error?.message.replace(/(^\[\d+m)|(\s\[\d+m$)/, "") }\n`;
         hashTag = '#провал';
     }
     else {
@@ -35,7 +35,7 @@ export async function getMessage(testInfo: TestInfo) {
                 + '✿ ------------------ ✿\n'
                 + hashTag;
 
-    const response = await fetch(`https://api.telegram.org/bot${ process.env.TEST_TELEGRAM_TOKEN }/sendMessage`, {
+    await fetch(`https://api.telegram.org/bot${ process.env.TEST_TELEGRAM_TOKEN }/sendMessage`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
