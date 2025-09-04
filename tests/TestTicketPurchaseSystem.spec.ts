@@ -48,8 +48,8 @@ test.describe('Cистема покупки билетов', () => {
 
 	});
 
-	test.afterEach(async ({}, testInfo) => {
-		getMessage(testInfo);
+	test.afterEach(async ({ page }, testInfo) => {
+		getMessage(testInfo, page);
 	});
 
 });
