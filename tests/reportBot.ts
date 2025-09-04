@@ -13,15 +13,14 @@ export async function getMessage(testInfo: TestInfo) {
 
     let message = '✿ ----------ПРИВЕТ! 🐭---------- ✿\n'
                 + '\n'
-                + '✿ ------------------------------------- ✿\n'
                 + '✿ 📅 Дата запуска -- 21/09/2025\n'
                 + '✿ 🕕 Время запуска -- 10:00:00\n'
-                + '✿ ------------------------------------- ✿\n'
-                // + '\n'
                 + '\n'
                 + '✿ ------------------------------------- ✿\n'
+                + '\n'
                 + resultMessage
                 + `✿ 🕕 Время выполнения -- ${ testInfo.duration } ms \n`
+                + '\n'
                 + '✿ ------------------------------------- ✿\n'
                 + '\n'
                 + `✿ Вот ссылка -- https://github.com/${ process.env.LINK_GIT }/actions/runs/${ process.env.CI_ID }\n`
@@ -29,7 +28,7 @@ export async function getMessage(testInfo: TestInfo) {
                 + '✿ ------------------------------------- ✿\n'
                 + '✿ #успех';
     
-    console.log('>>>>>>> ' + message);
+    console.log(message);
 
     const response = await fetch(`https://api.telegram.org/bot${ process.env.TEST_TELEGRAM_TOKEN }/sendMessage`, {
         method: 'POST',
