@@ -1,14 +1,18 @@
 import { TestInfo } from "@playwright/test";
 import { getCurrentDate } from "./getCurrentDate";
 import { getCurrentTime } from "./getCurrentTime";
+import { getTestDuration } from "./getTestDuration";
 
 // require('dotenv').config(); // Включить при запуске локально
 
 export async function getMessage(testInfo: TestInfo) {
     let resultMessage = '';
     let hashTag = '';
+
     const data = getCurrentDate();
     const time = getCurrentTime();
+
+    const duration = getTestDuration(testInfo.duration);
 
     if (testInfo.status !== testInfo.expectedStatus) {
         resultMessage = '❌ Запуск теста завершен ПРОВАЛОМ!\n'
@@ -21,7 +25,7 @@ export async function getMessage(testInfo: TestInfo) {
     }
 
     let message = resultMessage
-                + `🕕 Время выполнения -- ${ testInfo.duration } ms \n`
+                + `🕕 Время выполнения -- ${ duration } \n`
                 + '\n'
                 + `📅 Дата запуска -- ${ data }\n`
                 + `🕕 Время запуска -- ${ time }\n`

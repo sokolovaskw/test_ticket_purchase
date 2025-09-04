@@ -5,5 +5,5 @@ export function getCurrentDate(): string{
     const month = String(today.getMonth() + 1).padStart(2, "0"); // месяцы начинаются с 0
     const year = today.getFullYear();
 
-    return `${day}.${month}.${year}`;
+    return `${ day }.${ month }.${ year }`;
 }
