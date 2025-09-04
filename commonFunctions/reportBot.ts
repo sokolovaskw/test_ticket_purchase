@@ -34,8 +34,6 @@ export async function getMessage(testInfo: TestInfo) {
                 + '\n'
                 + '✿ ------------------ ✿\n'
                 + hashTag;
-    
-    console.log(message);
 
     const response = await fetch(`https://api.telegram.org/bot${ process.env.TEST_TELEGRAM_TOKEN }/sendMessage`, {
         method: 'POST',
@@ -47,6 +45,4 @@ export async function getMessage(testInfo: TestInfo) {
             text: message,
         }),
     });
-
-    console.log('<<<<<<< resp = ' + response.body);
 }
