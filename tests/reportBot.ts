@@ -18,7 +18,7 @@ export async function getMessage(testInfo: TestInfo, page: Page) {
     
     console.log('>>>>>>> ' + message);
 
-    fetch(`https://api.telegram.org/bot${ process.env.TEST_TELEGRAM_TOKEN }/sendMessage`, {
+    const response = await fetch(`https://api.telegram.org/bot${ process.env.TEST_TELEGRAM_TOKEN }/sendMessage`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -28,6 +28,8 @@ export async function getMessage(testInfo: TestInfo, page: Page) {
             text: message,
         }),
     });
+
+    console.log('<<<<<<< resp = ' + response.json());
 
 //     const response = await page.request.post(`https://api.telegram.org/bot${ process.env.TEST_TELEGRAM_TOKEN }/sendMessage`, {
 //       data: JSON.stringify({
