@@ -8,16 +8,16 @@ export default defineConfig({
 	retries: 0,
 	workers: process.env.CI ? 1 : undefined,
 	reporter: [
+		[ 'junit', { 
+    		outputFile: 'results/test-results.xml',
+    		embedAnnotationsAsProperties: true,
+  		} ],
 		[ 'html' ],
 		[ process.env.CI ? 'github' : 'list' ],
 		[ '@estruyf/github-actions-reporter', <GitHubActionOptions>{
       		useDetails: true,
       		showError: true
     	} ],
-		[ 'junit', { 
-    		outputFile: 'results/test-results.xml',
-    		embedAnnotationsAsProperties: true,
-  		} ],
 	],
 	use: {
 		trace: 'retry-with-trace',
