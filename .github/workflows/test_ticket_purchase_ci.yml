@@ -66,7 +66,10 @@ jobs:
         steps:
             - run: |
                 pip install testit-cli
+                echo '>>>>>>>>>>>>> путь'
                 pwd
+                echo '>>>>>>>>>>>>> '
+                ls -la
                 testit results import \
                   --url ${{ secrets.TEST_IT_URL }} \
                   --token ${{ secrets.TEST_IT_TOKEN }} \
