@@ -66,6 +66,7 @@ jobs:
         steps:
             - run: |
                 pip install testit-cli
+                pwd
                 testit results import \
                   --url ${{ secrets.TEST_IT_URL }} \
                   --token ${{ secrets.TEST_IT_TOKEN }} \
