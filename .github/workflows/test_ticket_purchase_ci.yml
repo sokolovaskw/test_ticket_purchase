@@ -52,27 +52,11 @@ jobs:
                 name: playwright-report
                 path: playwright-report/
                 retention-days: 30
-    
-    testit:
-        if: always()
-        needs: [ test ]
 
-        environment:
-            name: github-pages
-            url: ${{ steps.deployment.outputs.page_url }}
-
-        runs-on: ubuntu-latest
-
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
-
-            - run: |
+            - name: Submit results
+              if: always()
+              run: |
                 pip install testit-cli
-                echo '>>>>>>>>>>>>> путь'
-                pwd
-                echo '>>>>>>>>>>>>> '
-                ls -la
                 testit results import \
                   --url ${{ secrets.TEST_IT_URL }} \
                   --token ${{ secrets.TEST_IT_TOKEN }} \
