@@ -14,6 +14,10 @@ export default defineConfig({
       		useDetails: true,
       		showError: true
     	} ],
+		[ 'junit', { 
+    		outputFile: 'results/test-results.xml',
+    		embedAnnotationsAsProperties: true,
+  		} ],
 	],
 	use: {
 		trace: 'retry-with-trace',

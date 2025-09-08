@@ -52,3 +52,24 @@ jobs:
                 name: playwright-report
                 path: playwright-report/
                 retention-days: 30
+    
+    testit:
+        if: always()
+        needs: [ test ]
+
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - run: |
+                pip install testit-cli
+                testit results import \
+                  --url ${{ secrets.TEST_IT_URL }} \
+                  --token ${{ secrets.TEST_IT_TOKEN }} \
+                  --project-id ${{ secrets.TEST_IT_PROJECT_ID }} \
+                  --configuration-id ${{ secrets.TEST_IT_CONF_ID }} \
+                  --testrun-name "GitHub test run" \
+                  --results results/test-results.xml
