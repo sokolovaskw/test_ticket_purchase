@@ -19,6 +19,7 @@ export default defineConfig({
 		trace: 'retry-with-trace',
 		screenshot: 'only-on-failure',
 		baseURL: 'https://dreamisland.ru/',
+		video: 'retain-on-failure',
 	},
 
 	projects: [
